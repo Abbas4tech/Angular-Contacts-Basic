@@ -1,0 +1,17 @@
+<div class="z-10 h-screen w-full bg-black/70 fixed top-0 left-0"></div>
+<app-card>
+  <form formHandler="onClickForm($event)">
+    <label class="font-bold text-lg block" for="bookname">Bookname :</label>
+    <input
+      type="text"
+      name="bookname"
+      id="bookname"
+      class="my-4 p-3 w-full border-2 border-black rounded-md text-xl"
+    />
+    <span class="text-red-900">Please enter valid bookname*</span>
+    <div class="flex justify-end items-center space-x-4 mt-4">
+      <app-button buttonName="Cancel" type="button"></app-button>
+      <app-button buttonName="Add Book" type="submit"></app-button>
+    </div>
+  </form>
+</app-card>
