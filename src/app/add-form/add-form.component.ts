@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-form',
@@ -7,6 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AddFormComponent implements OnInit {
   constructor() {}
-
-  ngOnInit(): void {}
+  AddUserForm!: FormGroup;
+  ngOnInit(): void {
+    this.AddUserForm = new FormGroup({
+      fullname: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+    });
+  }
+  onSubmit() {
+    console.log(this.AddUserForm.value);
+  }
 }
