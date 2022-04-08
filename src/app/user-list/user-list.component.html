@@ -1,0 +1,24 @@
+<ul class="flex flex-1 p-4">
+  <li *ngFor="let user of usersList">
+    <section
+      class="flex w-[90%] max-w-md bg-gray-200 rounded-2xl relative"
+      id="{{ user.id }}"
+    >
+      <div class="flex-1 rounded-2xl overflow-hidden">
+        <img src="{{ user.imageUrl }}" class="w-full h-full object-cover" />
+      </div>
+      <div class="py-2 px-4">
+        <h1 class="font-bold text-2xl">{{ user.fullname }}</h1>
+        <h3 class="text-lg mt-4">{{ user.email }}</h3>
+        <div class="buttons mt-4 absolute bottom-4 right-4">
+          <button
+            class="p-3 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
+            (click)="onDelete(user.id)"
+          >
+            Delete!
+          </button>
+        </div>
+      </div>
+    </section>
+  </li>
+</ul>

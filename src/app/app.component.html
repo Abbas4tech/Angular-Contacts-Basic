@@ -1,2 +1,6 @@
 <app-header [heading]="title"></app-header>
-<app-add-form></app-add-form>
+<app-add-form (settingData)="renderUsers($event)"></app-add-form>
+<app-user-list
+  [usersList]="users"
+  (onDeleteUser)="deleteUser($event)"
+></app-user-list>
