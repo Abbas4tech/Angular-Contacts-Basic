@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -20,6 +14,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddFormComponent implements OnInit {
   @Output() settingData: EventEmitter<any> = new EventEmitter<any>();
+  @Input() formState!: boolean;
+  @Output() formClose: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
   AddUserForm!: FormGroup;
   ngOnInit(): void {
@@ -29,8 +25,12 @@ export class AddFormComponent implements OnInit {
       imageUrl: new FormControl(null),
     });
   }
+  close() {
+    this.formClose.emit(!this.formState);
+  }
   onSubmit() {
     console.log(this.AddUserForm.value);
     this.settingData.emit(this.AddUserForm.value);
+    this.close();
   }
 }

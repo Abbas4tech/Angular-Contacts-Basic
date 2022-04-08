@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
   formIsOpen = false;
   users: any = [
     {
-      fullname: 'Abbas Shaikh',
-      email: 'Shaikhabbas@test.com',
+      fullname: 'Dummy User',
+      email: 'Dummyuser@test.com',
       imageUrl:
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
@@ -24,6 +24,12 @@ export class AppComponent implements OnInit {
   }
   deleteUser(userToBeDelete: number) {
     this.users = this.users.filter((user: any) => user.id !== userToBeDelete);
+  }
+  onClickHeaderAddButton(formOpenState: boolean) {
+    this.formIsOpen = formOpenState;
+  }
+  onClickCancelOnForm(formCloseState: boolean) {
+    this.formIsOpen = formCloseState;
   }
   ngOnInit(): void {}
 }

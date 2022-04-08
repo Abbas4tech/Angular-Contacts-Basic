@@ -1,5 +1,14 @@
-<app-header [heading]="title"></app-header>
-<app-add-form (settingData)="renderUsers($event)"></app-add-form>
+<app-header
+  [heading]="title"
+  [formState]="formIsOpen"
+  (formOpen)="onClickHeaderAddButton($event)"
+></app-header>
+<app-add-form
+  [formState]="formIsOpen"
+  (settingData)="renderUsers($event)"
+  (formClose)="onClickCancelOnForm($event)"
+  *ngIf="formIsOpen"
+></app-add-form>
 <app-user-list
   [usersList]="users"
   (onDeleteUser)="deleteUser($event)"

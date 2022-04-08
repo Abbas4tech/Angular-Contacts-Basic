@@ -1,10 +1,10 @@
-<ul class="flex flex-1 p-4">
+<ul class="p-4 grid grid-cols-4">
   <li *ngFor="let user of usersList">
     <section
-      class="flex w-[90%] max-w-md bg-gray-200 rounded-2xl relative"
+      class="flex w-[90%] bg-gray-200 rounded-2xl relative h-52"
       id="{{ user.id }}"
     >
-      <div class="flex-1 rounded-2xl overflow-hidden">
+      <div class="rounded-2xl overflow-hidden">
         <img src="{{ user.imageUrl }}" class="w-full h-full object-cover" />
       </div>
       <div class="py-2 px-4">
