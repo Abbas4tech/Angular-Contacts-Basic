@@ -16,6 +16,7 @@ export class AddFormComponent implements OnInit {
   @Output() settingData: EventEmitter<any> = new EventEmitter<any>();
   @Input() formState!: boolean;
   @Output() formClose: EventEmitter<any> = new EventEmitter<any>();
+  @Output() modalHandler: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
   AddUserForm!: FormGroup;
   ngOnInit(): void {
@@ -31,6 +32,10 @@ export class AddFormComponent implements OnInit {
   onSubmit() {
     console.log(this.AddUserForm.value);
     this.settingData.emit(this.AddUserForm.value);
+    this.modalHandler.emit({
+      title: 'Contact Added!',
+      message: 'Your Contact has been added',
+    });
     this.close();
   }
 }

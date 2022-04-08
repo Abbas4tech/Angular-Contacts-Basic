@@ -1,6 +1,5 @@
-<div class="z-10 h-screen w-full bg-black/75 fixed top-0 left-0"></div>
 <app-card>
-  <form [formGroup]="AddUserForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="AddUserForm" (ngSubmit)="onSubmit()" class="m-4">
     <label class="font-bold text-lg block" for="fullname">Fullname :</label>
     <input
       type="text"

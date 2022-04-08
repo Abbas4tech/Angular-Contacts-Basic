@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'My Contacts';
-  formIsOpen = false;
+  formIsOpen: boolean = false;
+  modalMesasge: any;
+  modalIsOpen: boolean = false;
   users: any = [
     {
       fullname: 'Dummy User',
@@ -30,6 +32,12 @@ export class AppComponent implements OnInit {
   }
   onClickCancelOnForm(formCloseState: boolean) {
     this.formIsOpen = formCloseState;
+  }
+  sendModalDetail(modalDetails: any) {
+    this.modalMesasge = modalDetails;
+  }
+  onCloseModal(modalCloseState: any) {
+    this.modalMesasge = modalCloseState;
   }
   ngOnInit(): void {}
 }

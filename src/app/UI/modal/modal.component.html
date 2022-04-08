@@ -1,0 +1,18 @@
+<app-card>
+  <div class="h-36 flex items-center">
+    <header class="font-bold bg-slate-800 text-white text-xl w-full">
+      {{ modal.title }}
+    </header>
+  </div>
+  <div>
+    <p>{{ modal.message }}</p>
+  </div>
+  <footer class="flex justify-end p-4">
+    <button
+      class="p-3 rounded-md bg-slate-700 text-white hover:bg-slate-900"
+      (click)="onClickOkay()"
+    >
+      Okay
+    </button>
+  </footer>
+</app-card>
