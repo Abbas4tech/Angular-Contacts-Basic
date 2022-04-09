@@ -1,12 +1,12 @@
 <app-header
   [heading]="title"
   [formState]="formIsOpen"
-  (formOpen)="onClickHeaderAddButton($event)"
+  (formOpen)="formHandler($event)"
 ></app-header>
 <app-add-form
   [formState]="formIsOpen"
   (settingData)="renderUsers($event)"
-  (formClose)="onClickCancelOnForm($event)"
+  (formClose)="formHandler($event)"
   *ngIf="formIsOpen"
   (modalHandler)="sendModalDetail($event)"
 ></app-add-form>
@@ -15,7 +15,6 @@
   (onDeleteUser)="deleteUser($event)"
 ></app-user-list>
 <app-modal
-  [modal]="modalMesasge"
   *ngIf="modalMesasge"
   [modalState]="modalMesasge"
   (closeModal)="onCloseModal($event)"

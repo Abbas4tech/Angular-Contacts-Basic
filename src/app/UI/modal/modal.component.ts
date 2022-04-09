@@ -6,7 +6,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
-  @Input() modal!: { title: string; message: string };
   @Output() closeModal: EventEmitter<any> = new EventEmitter<any>();
   @Input() modalState!: any;
   constructor() {}

@@ -26,12 +26,13 @@ export class AppComponent implements OnInit {
   }
   deleteUser(userToBeDelete: number) {
     this.users = this.users.filter((user: any) => user.id !== userToBeDelete);
+    this.modalMesasge = {
+      title: 'Deleted!',
+      message: 'Your Contact has been delete!',
+    };
   }
-  onClickHeaderAddButton(formOpenState: boolean) {
-    this.formIsOpen = formOpenState;
-  }
-  onClickCancelOnForm(formCloseState: boolean) {
-    this.formIsOpen = formCloseState;
+  formHandler(currentFormState: boolean) {
+    this.formIsOpen = currentFormState;
   }
   sendModalDetail(modalDetails: any) {
     this.modalMesasge = modalDetails;
