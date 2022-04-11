@@ -15,15 +15,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddFormComponent implements OnInit {
   @Output() settingData: EventEmitter<any> = new EventEmitter<any>();
   @Input() formState!: boolean;
+  @Input() editUserData: any;
   @Output() formClose: EventEmitter<any> = new EventEmitter<any>();
   @Output() modalHandler: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
   AddUserForm!: FormGroup;
   ngOnInit(): void {
     this.AddUserForm = new FormGroup({
-      fullname: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      imageUrl: new FormControl(null),
+      fullname: new FormControl(
+        this.editUserData ? this.editUserData.fullname : null,
+        Validators.required
+      ),
+      email: new FormControl(
+        this.editUserData ? this.editUserData.email : null,
+        [Validators.required, Validators.email]
+      ),
+      imageUrl: new FormControl(
+        this.editUserData ? this.editUserData.imageUrl : null
+      ),
     });
   }
   close() {
@@ -33,8 +42,10 @@ export class AddFormComponent implements OnInit {
     console.log(this.AddUserForm.value);
     this.settingData.emit(this.AddUserForm.value);
     this.modalHandler.emit({
-      title: 'Contact Added!',
-      message: 'Your Contact has been added',
+      title: `Contact ${this.editUserData ? 'Updated!' : 'Added!'}`,
+      message: `Your Contact has been ${
+        this.editUserData ? 'updated.' : 'added.'
+      }`,
     });
     this.close();
   }

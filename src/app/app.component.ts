@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   formIsOpen: boolean = false;
   modalMesasge: any;
   modalIsOpen: boolean = false;
+  editUserData: any;
   users: any = [
     {
       fullname: 'Dummy User',
@@ -21,18 +22,33 @@ export class AppComponent implements OnInit {
   ];
   renderUsers(addedUserObj: any) {
     console.log(addedUserObj);
-    this.users.push(addedUserObj);
-    console.log(this.users);
+    if (this.editUserData) {
+      console.log(this.users.indexOf(this.editUserData));
+      this.users.splice(this.users.indexOf(this.editUserData), 1, addedUserObj);
+      this.editUserData = null;
+    } else {
+      addedUserObj.id = Math.random();
+      this.users.push(addedUserObj);
+      console.log(this.users);
+    }
   }
   deleteUser(userToBeDelete: number) {
+    console.log(userToBeDelete);
     this.users = this.users.filter((user: any) => user.id !== userToBeDelete);
+    console.log(this.users);
     this.modalMesasge = {
       title: 'Deleted!',
       message: 'Your Contact has been delete!',
     };
   }
+  editUser(userData: any) {
+    this.editUserData = userData;
+    this.formIsOpen = true;
+    console.log(this.editUserData);
+  }
   formHandler(currentFormState: boolean) {
     this.formIsOpen = currentFormState;
+    if (this.editUserData) this.editUserData = null;
   }
   sendModalDetail(modalDetails: any) {
     this.modalMesasge = modalDetails;

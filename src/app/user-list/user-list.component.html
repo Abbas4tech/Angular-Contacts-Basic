@@ -13,6 +13,12 @@
         <div class="buttons mt-4 absolute bottom-4 right-4">
           <button
             class="p-3 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
+            (click)="onEdit(user)"
+          >
+            Edit
+          </button>
+          <button
+            class="p-3 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
             (click)="onDelete(user.id)"
           >
             Delete!

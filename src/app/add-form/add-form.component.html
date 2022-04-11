@@ -54,7 +54,7 @@
         class="px-6 py-3 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed disabled:font-bold"
         [disabled]="!AddUserForm.valid"
       >
-        Add
+        {{ editUserData ? "Update" : "Add" }}
       </button>
       <button
         class="p-3 rounded-md bg-slate-700 text-white hover:bg-slate-900"

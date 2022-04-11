@@ -7,12 +7,14 @@
   [formState]="formIsOpen"
   (settingData)="renderUsers($event)"
   (formClose)="formHandler($event)"
+  [editUserData]="editUserData"
   *ngIf="formIsOpen"
   (modalHandler)="sendModalDetail($event)"
 ></app-add-form>
 <app-user-list
   [usersList]="users"
   (onDeleteUser)="deleteUser($event)"
+  (onEditUser)="editUser($event)"
 ></app-user-list>
 <app-modal
   *ngIf="modalMesasge"

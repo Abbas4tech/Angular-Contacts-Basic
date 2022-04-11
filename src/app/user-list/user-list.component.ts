@@ -12,9 +12,13 @@ export class UserListComponent implements OnInit {
     id: number;
   }[];
   @Output() onDeleteUser: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onEditUser: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
   onDelete(userId: number) {
     this.onDeleteUser.emit(userId);
+  }
+  onEdit(userObj: any) {
+    this.onEditUser.emit(userObj);
   }
   ngOnInit(): void {}
 }
