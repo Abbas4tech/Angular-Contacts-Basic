@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
       this.users.splice(this.users.indexOf(this.editUserData), 1, addedUserObj);
       this.editUserData = null;
     } else {
-      addedUserObj.id = Math.random();
       this.users.push(addedUserObj);
       console.log(this.users);
     }

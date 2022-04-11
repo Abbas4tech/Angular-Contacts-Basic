@@ -40,6 +40,7 @@ export class AddFormComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.AddUserForm.value);
+    this.AddUserForm.value.id = Math.random();
     this.settingData.emit(this.AddUserForm.value);
     this.modalHandler.emit({
       title: `Contact ${this.editUserData ? 'Updated!' : 'Added!'}`,
