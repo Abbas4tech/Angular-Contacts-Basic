@@ -13,11 +13,28 @@ export class AppComponent implements OnInit {
   editUserData: any;
   users: any = [
     {
-      fullname: 'Dummy User',
+      fullname: 'Dummy User - 1',
       email: 'Dummyuser@test.com',
       imageUrl:
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
+      isSelected: false,
+    },
+    {
+      fullname: 'Dummy User - 2',
+      email: 'Dummyuser@test.com',
+      imageUrl:
+        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      id: Math.random(),
+      isSelected: false,
+    },
+    {
+      fullname: 'Dummy User - 3',
+      email: 'Dummyuser@test.com',
+      imageUrl:
+        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+      id: Math.random(),
+      isSelected: false,
     },
   ];
   renderUsers(addedUserObj: any) {
@@ -31,9 +48,9 @@ export class AppComponent implements OnInit {
       console.log(this.users);
     }
   }
-  deleteUser(userToBeDelete: number) {
-    console.log(userToBeDelete);
-    this.users = this.users.filter((user: any) => user.id !== userToBeDelete);
+  deleteUser(userToBeDeleted: number) {
+    console.log(userToBeDeleted);
+    this.users = this.users.filter((user: any) => user.id !== userToBeDeleted);
     console.log(this.users);
     this.modalMesasge = {
       title: 'Deleted!',

@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 
 import { AddFormComponent } from './add-form/add-form.component';
 import { CardComponent } from './UI/card/card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { ModalComponent } from './UI/modal/modal.component';
 import { ErrorMessageDirective } from './add-form/directives/error-message.directive';
@@ -21,7 +21,7 @@ import { ErrorMessageDirective } from './add-form/directives/error-message.direc
     ModalComponent,
     ErrorMessageDirective,
   ],
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
