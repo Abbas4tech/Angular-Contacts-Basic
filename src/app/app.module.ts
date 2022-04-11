@@ -9,6 +9,7 @@ import { CardComponent } from './UI/card/card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { ModalComponent } from './UI/modal/modal.component';
+import { ErrorMessageDirective } from './add-form/directives/error-message.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ModalComponent } from './UI/modal/modal.component';
     CardComponent,
     UserListComponent,
     ModalComponent,
+    ErrorMessageDirective,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

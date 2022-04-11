@@ -15,7 +15,7 @@
         !AddUserForm.get('fullname')?.valid &&
         AddUserForm.get('fullname')?.touched
       "
-      class="text-red-900"
+      ErrorMessage
       >Please enter valid fullname*</span
     >
 
@@ -33,7 +33,7 @@
       *ngIf="
         !AddUserForm.get('email')?.valid && AddUserForm.get('email')?.touched
       "
-      class="text-red-900"
+      ErrorMessage
       >Please enter valid email*</span
     >
 
