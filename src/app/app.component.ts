@@ -72,5 +72,8 @@ export class AppComponent implements OnInit {
   onCloseModal(modalCloseState: any) {
     this.modalMesasge = modalCloseState;
   }
+  afterMultipleDeletes(usersCopy: any) {
+    this.users = usersCopy;
+  }
   ngOnInit(): void {}
 }

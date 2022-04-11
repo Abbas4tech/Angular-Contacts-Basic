@@ -15,6 +15,7 @@
   [usersList]="users"
   (onDeleteUser)="deleteUser($event)"
   (onEditUser)="editUser($event)"
+  (onMultipleDeleteUsers)="afterMultipleDeletes($event)"
 ></app-user-list>
 <app-modal
   *ngIf="modalMesasge"
