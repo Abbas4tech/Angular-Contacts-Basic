@@ -21,16 +21,16 @@ export class AppComponent implements OnInit {
       isSelected: false,
     },
     {
-      fullname: 'Dummy User - 2',
-      email: 'Dummyuser@test.com',
+      fullname: 'New User',
+      email: 'user@dummy.com',
       imageUrl:
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
       isSelected: false,
     },
     {
-      fullname: 'Dummy User - 3',
-      email: 'Dummyuser@test.com',
+      fullname: 'Old User',
+      email: 'Olduser@test.com',
       imageUrl:
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),

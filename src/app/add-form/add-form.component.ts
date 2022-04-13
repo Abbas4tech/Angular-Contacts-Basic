@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoggingService } from '../services/Logging.service';
 
 @Component({
   selector: 'app-add-form',
@@ -11,6 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
       }
     `,
   ],
+  providers: [LoggingService],
 })
 export class AddFormComponent implements OnInit {
   @Output() settingData: EventEmitter<any> = new EventEmitter<any>();
@@ -18,7 +20,7 @@ export class AddFormComponent implements OnInit {
   @Input() editUserData: any;
   @Output() formClose: EventEmitter<any> = new EventEmitter<any>();
   @Output() modalHandler: EventEmitter<any> = new EventEmitter<any>();
-  constructor() {}
+  constructor(private loggingService: LoggingService) {}
   AddUserForm!: FormGroup;
   ngOnInit(): void {
     this.AddUserForm = new FormGroup({
@@ -39,7 +41,7 @@ export class AddFormComponent implements OnInit {
     this.formClose.emit(!this.formState);
   }
   onSubmit() {
-    console.log(this.AddUserForm.value);
+    this.loggingService.onLoggingData(this.AddUserForm.value);
     this.AddUserForm.value.id = Math.random();
     this.AddUserForm.value.isSelected = false;
     this.settingData.emit(this.AddUserForm.value);

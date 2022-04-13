@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { LoggingService } from '../services/Logging.service';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
+  providers: [LoggingService],
 })
 export class UserListComponent implements OnInit {
   SelectAll!: boolean;
@@ -22,11 +24,39 @@ export class UserListComponent implements OnInit {
     id: number;
     isSelected: boolean;
   }[];
-  @Output() onDeleteUser: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onMultipleDeleteUsers: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onEditUser: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onDeleteUser: EventEmitter<number> = new EventEmitter<number>();
+  @Output() onMultipleDeleteUsers: EventEmitter<
+    {
+      fullname: string;
+      email: string;
+      imageUrl: string;
+      id: number;
+      isSelected: boolean;
+    }[]
+  > = new EventEmitter<
+    {
+      fullname: string;
+      email: string;
+      imageUrl: string;
+      id: number;
+      isSelected: boolean;
+    }[]
+  >();
+  @Output() onEditUser: EventEmitter<{
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+  }> = new EventEmitter<{
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+  }>();
 
-  constructor() {}
+  constructor(private loggingService: LoggingService) {}
 
   onDelete(userId: number) {
     this.onDeleteUser.emit(userId);
@@ -39,26 +69,28 @@ export class UserListComponent implements OnInit {
   onSelectContact($event: any) {
     const id = +$event.target.value;
     const isChecked = $event.target.checked;
-
     console.log(id, isChecked);
+
     this.usersCopy = [...this.usersList];
     this.usersCopy = this.usersCopy.map((user: any) => {
       if (user.id === id) {
         user.isSelected = isChecked;
-        if (user.isSelected) {
-          this.numberOfUserSelected++; // bugs is present because of some mistake here
-        }
+        user.isSelected
+          ? this.numberOfUserSelected++
+          : this.numberOfUserSelected--;
         this.SelectAll = false;
+
         return user;
       }
-      // if (user.id !== id && isChecked) this.numberOfUserSelected++;
+
       if (id === -1) {
         user.isSelected = this.SelectAll;
+        this.numberOfUserSelected++;
         return user;
       }
       return user;
     });
-    console.log(this.usersCopy);
+    this.loggingService.onLoggingData(this.usersCopy);
   }
 
   onMultipleDelete() {
