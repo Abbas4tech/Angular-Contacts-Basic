@@ -24,7 +24,7 @@
 <ul class="px-4 flex flex-wrap gap-5">
   <li
     *ngFor="let user of usersList"
-    class="w-full max-w-[25rem] rounded-md shadow-md shadow-gray-500 cursor-pointer hover:-translate-y-2 hover:shadow-lg transition-all bg-slate-200"
+    class="flex w-full max-w-[25rem] rounded-md shadow-md shadow-gray-500 cursor-pointer hover:-translate-y-2 hover:shadow-lg transition-all bg-slate-200"
   >
     <!-- <input
         type="checkbox"
@@ -32,14 +32,14 @@
         (change)="checkValue(isChecked ? user.id : null)"
       /> -->
     <!--  -->
-    <!-- <div class="overflow-hidden h-52"> -->
-    <!-- <img
-          src="{{ user.imageUrl }}"
-          class="w-full h-full object-cover rounded-tl-md rounded-bl-md sm:hidden"
-        /> -->
-    <!-- </div> -->
+    <div class="overflow-hidden h-52">
+      <img
+        src="{{ user.imageUrl }}"
+        class="w-full h-full object-cover rounded-tl-md rounded-bl-md sm:hidden"
+      />
+    </div>
 
-    <section class="p-4">
+    <section class="p-4 w-3/4">
       <div class="heading flex justify-between items-center">
         <h1 class="font-bold text-xl">{{ user.fullname }}</h1>
         <input
@@ -56,23 +56,23 @@
       <h3 class="text-lg mt-2">7977166580</h3>
 
       <h3 class="text-lg mt-2">7977166580</h3>
-    </section>
 
-    <div class="buttons flex justify-end p-4">
-      <button
-        class="py-2 px-4 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed mr-3"
-        (click)="onEdit(user)"
-        [disabled]="numberOfUserSelected > 0"
-      >
-        Edit
-      </button>
-      <button
-        class="p-2 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
-        (click)="onDelete(user.id)"
-        [disabled]="numberOfUserSelected > 0"
-      >
-        Delete!
-      </button>
-    </div>
+      <div class="buttons flex justify-end">
+        <button
+          class="py-2 px-4 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed mr-3"
+          (click)="onEdit(user)"
+          [disabled]="numberOfUserSelected > 0"
+        >
+          Edit
+        </button>
+        <button
+          class="p-2 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
+          (click)="onDelete(user.id)"
+          [disabled]="numberOfUserSelected > 0"
+        >
+          Delete!
+        </button>
+      </div>
+    </section>
   </li>
 </ul>
