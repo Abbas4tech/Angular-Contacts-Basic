@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
       isSelected: false,
+      phone: 7977166580,
+      status: 'Active',
     },
     {
       fullname: 'New User',
@@ -27,6 +29,8 @@ export class AppComponent implements OnInit {
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
       isSelected: false,
+      phone: 7977166580,
+      status: 'Inactive',
     },
     {
       fullname: 'Old User',
@@ -35,6 +39,8 @@ export class AppComponent implements OnInit {
         'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       id: Math.random(),
       isSelected: false,
+      phone: 7977166580,
+      status: 'Inactive',
     },
   ];
 

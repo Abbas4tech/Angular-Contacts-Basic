@@ -15,18 +15,22 @@ import { LoggingService } from '../services/Logging.service';
   providers: [LoggingService],
 })
 export class AddFormComponent implements OnInit {
+  status: string[] = ['Active', 'Inactive'];
+
   @Output() settingData: EventEmitter<{
     fullname: string;
     email: string;
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    status: string;
   }> = new EventEmitter<{
     fullname: string;
     email: string;
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    status: string;
   }>();
   @Input() formState!: boolean;
   @Input() editUserData!: {
@@ -35,6 +39,8 @@ export class AddFormComponent implements OnInit {
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    phone: number;
+    status: string;
   };
   @Output() formClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() modalHandler: EventEmitter<{ title: string; message: string }> =
@@ -56,6 +62,13 @@ export class AddFormComponent implements OnInit {
       ),
       imageUrl: new FormControl(
         this.editUserData ? this.editUserData.imageUrl : null
+      ),
+      phone: new FormControl(
+        this.editUserData ? this.editUserData.phone : null,
+        [Validators.required, Validators.pattern('([0-9]{10})')]
+      ),
+      status: new FormControl(
+        this.editUserData ? this.editUserData.status : 'Active'
       ),
     });
   }

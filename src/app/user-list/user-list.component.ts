@@ -4,6 +4,7 @@ import { LoggingService } from '../services/Logging.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css'],
   providers: [LoggingService],
 })
 export class UserListComponent implements OnInit {
@@ -15,6 +16,7 @@ export class UserListComponent implements OnInit {
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    status: string;
   }[]; //It was neccessory to create a hard copy of users Array , since facing some major issues and bugs because of refrence behavior of objects in javascript
 
   @Input() usersList!: {
@@ -23,6 +25,8 @@ export class UserListComponent implements OnInit {
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    phone: number;
+    status: string;
   }[];
   @Output() onDeleteUser: EventEmitter<number> = new EventEmitter<number>();
   @Output() onMultipleDeleteUsers: EventEmitter<
@@ -32,6 +36,7 @@ export class UserListComponent implements OnInit {
       imageUrl: string;
       id: number;
       isSelected: boolean;
+      status: string;
     }[]
   > = new EventEmitter<
     {
@@ -40,6 +45,7 @@ export class UserListComponent implements OnInit {
       imageUrl: string;
       id: number;
       isSelected: boolean;
+      status: string;
     }[]
   >();
   @Output() onEditUser: EventEmitter<{
@@ -48,12 +54,14 @@ export class UserListComponent implements OnInit {
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    status: string;
   }> = new EventEmitter<{
     fullname: string;
     email: string;
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    status: string;
   }>();
 
   constructor(private loggingService: LoggingService) {}
