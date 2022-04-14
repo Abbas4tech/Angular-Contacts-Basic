@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'My Contacts';
   formIsOpen: boolean = false;
-  modalMesasge: any;
+  modalMesasge!: { title: string; message: string };
   modalIsOpen: boolean = false;
-  editUserData: any;
+  editUserData!: any;
   users: any = [
     {
       fullname: 'Dummy User - 1',
@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
       isSelected: false,
     },
   ];
+
   renderUsers(addedUserObj: any) {
     console.log(addedUserObj);
     if (this.editUserData) {
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
       console.log(this.users);
     }
   }
+
   deleteUser(userToBeDeleted: number) {
     console.log(userToBeDeleted);
     this.users = this.users.filter((user: any) => user.id !== userToBeDeleted);
@@ -57,23 +59,33 @@ export class AppComponent implements OnInit {
       message: 'Your Contact has been delete!',
     };
   }
+
   editUser(userData: any) {
     this.editUserData = userData;
     this.formIsOpen = true;
     console.log(this.editUserData);
   }
+
   formHandler(currentFormState: boolean) {
     this.formIsOpen = currentFormState;
     if (this.editUserData) this.editUserData = null;
   }
+
   sendModalDetail(modalDetails: any) {
     this.modalMesasge = modalDetails;
   }
+
   onCloseModal(modalCloseState: any) {
     this.modalMesasge = modalCloseState;
   }
+
   afterMultipleDeletes(usersCopy: any) {
     this.users = usersCopy;
+    this.modalMesasge = {
+      title: 'Deleted!',
+      message: 'Deleted Selected contacts!',
+    };
   }
+
   ngOnInit(): void {}
 }

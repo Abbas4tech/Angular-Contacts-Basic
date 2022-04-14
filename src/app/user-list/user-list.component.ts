@@ -79,13 +79,12 @@ export class UserListComponent implements OnInit {
           ? this.numberOfUserSelected++
           : this.numberOfUserSelected--;
         this.SelectAll = false;
-
         return user;
       }
 
       if (id === -1) {
         user.isSelected = this.SelectAll;
-        this.numberOfUserSelected++;
+        isChecked ? this.numberOfUserSelected++ : this.numberOfUserSelected--;
         return user;
       }
       return user;

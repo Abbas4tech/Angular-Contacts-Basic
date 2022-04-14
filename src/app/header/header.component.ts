@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() heading!: string;
   @Input() formState!: boolean;
-  @Output() formOpen: EventEmitter<any> = new EventEmitter<any>();
+  @Output() formOpen: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
   open() {

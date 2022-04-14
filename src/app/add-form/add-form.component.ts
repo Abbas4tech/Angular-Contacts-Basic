@@ -15,13 +15,35 @@ import { LoggingService } from '../services/Logging.service';
   providers: [LoggingService],
 })
 export class AddFormComponent implements OnInit {
-  @Output() settingData: EventEmitter<any> = new EventEmitter<any>();
+  @Output() settingData: EventEmitter<{
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+  }> = new EventEmitter<{
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+  }>();
   @Input() formState!: boolean;
-  @Input() editUserData: any;
-  @Output() formClose: EventEmitter<any> = new EventEmitter<any>();
-  @Output() modalHandler: EventEmitter<any> = new EventEmitter<any>();
+  @Input() editUserData!: {
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+  };
+  @Output() formClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() modalHandler: EventEmitter<{ title: string; message: string }> =
+    new EventEmitter<{ title: string; message: string }>();
+
   constructor(private loggingService: LoggingService) {}
+
   AddUserForm!: FormGroup;
+
   ngOnInit(): void {
     this.AddUserForm = new FormGroup({
       fullname: new FormControl(
@@ -37,9 +59,11 @@ export class AddFormComponent implements OnInit {
       ),
     });
   }
+
   close() {
     this.formClose.emit(!this.formState);
   }
+
   onSubmit() {
     this.loggingService.onLoggingData(this.AddUserForm.value);
     this.AddUserForm.value.id = Math.random();
