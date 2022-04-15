@@ -66,7 +66,15 @@ export class AppComponent implements OnInit {
     };
   }
 
-  editUser(userData: any) {
+  editUser(userData: {
+    fullname: string;
+    email: string;
+    imageUrl: string;
+    id: number;
+    isSelected: boolean;
+    phone: number;
+    status: string;
+  }) {
     this.editUserData = userData;
     this.formIsOpen = true;
     console.log(this.editUserData);
@@ -77,7 +85,7 @@ export class AppComponent implements OnInit {
     if (this.editUserData) this.editUserData = null;
   }
 
-  sendModalDetail(modalDetails: any) {
+  sendModalDetail(modalDetails: { title: string; message: string }) {
     this.modalMesasge = modalDetails;
   }
 
@@ -85,7 +93,17 @@ export class AppComponent implements OnInit {
     this.modalMesasge = modalCloseState;
   }
 
-  afterMultipleDeletes(usersCopy: any) {
+  afterMultipleDeletes(
+    usersCopy: {
+      fullname: string;
+      email: string;
+      imageUrl: string;
+      id: number;
+      isSelected: boolean;
+      phone: number;
+      status: string;
+    }[]
+  ) {
     this.users = usersCopy;
     this.modalMesasge = {
       title: 'Deleted!',

@@ -16,6 +16,7 @@ export class UserListComponent implements OnInit {
     imageUrl: string;
     id: number;
     isSelected: boolean;
+    phone: number;
     status: string;
   }[]; //It was neccessory to create a hard copy of users Array , since facing some major issues and bugs because of refrence behavior of objects in javascript
 
@@ -36,6 +37,7 @@ export class UserListComponent implements OnInit {
       imageUrl: string;
       id: number;
       isSelected: boolean;
+      phone: number;
       status: string;
     }[]
   > = new EventEmitter<
@@ -45,6 +47,7 @@ export class UserListComponent implements OnInit {
       imageUrl: string;
       id: number;
       isSelected: boolean;
+      phone: number;
       status: string;
     }[]
   >();
@@ -53,6 +56,7 @@ export class UserListComponent implements OnInit {
     email: string;
     imageUrl: string;
     id: number;
+    phone: number;
     isSelected: boolean;
     status: string;
   }> = new EventEmitter<{
@@ -60,6 +64,7 @@ export class UserListComponent implements OnInit {
     email: string;
     imageUrl: string;
     id: number;
+    phone: number;
     isSelected: boolean;
     status: string;
   }>();
