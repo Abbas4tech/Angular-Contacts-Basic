@@ -11,6 +11,9 @@
   *ngIf="formIsOpen"
   (modalHandler)="sendModalDetail($event)"
 ></app-add-form>
+
+<app-no-contacts *ngIf="users.length === 0"></app-no-contacts>
+
 <app-user-list
   [usersList]="users"
   (onDeleteUser)="deleteUser($event)"

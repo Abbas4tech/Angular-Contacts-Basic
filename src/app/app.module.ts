@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { ModalComponent } from './UI/modal/modal.component';
 import { ErrorMessageDirective } from './add-form/directives/error-message.directive';
+import { NoContactsComponent } from './UI/no-contacts/no-contacts.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ErrorMessageDirective } from './add-form/directives/error-message.direc
     UserListComponent,
     ModalComponent,
     ErrorMessageDirective,
+    NoContactsComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, FormsModule],
   providers: [],
