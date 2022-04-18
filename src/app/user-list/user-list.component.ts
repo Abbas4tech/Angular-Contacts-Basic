@@ -92,6 +92,8 @@ export class UserListComponent implements OnInit {
           ? this.numberOfUserSelected++
           : this.numberOfUserSelected--;
         this.SelectAll = false;
+        if (this.usersCopy.every((user: any) => user.isSelected === isChecked))
+          this.SelectAll = isChecked;
         return user;
       }
 
@@ -100,6 +102,7 @@ export class UserListComponent implements OnInit {
         isChecked ? this.numberOfUserSelected++ : this.numberOfUserSelected--;
         return user;
       }
+
       return user;
     });
     this.loggingService.onLoggingData(this.usersCopy);
