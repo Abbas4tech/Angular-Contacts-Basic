@@ -65,18 +65,19 @@
         {{ user.status }}
       </h3>
 
-      <div class="buttons flex justify-end">
+      <div
+        class="buttons flex justify-end"
+        [ngClass]="{ hidden: numberOfUserSelected > 0 }"
+      >
         <button
           class="py-2 px-4 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed mr-3"
           (click)="onEdit(user)"
-          [disabled]="numberOfUserSelected > 0"
         >
           Edit
         </button>
         <button
           class="p-2 rounded-md bg-slate-700 text-white hover:bg-slate-900 disabled:bg-slate-300 disabled:text-black disabled:cursor-not-allowed"
           (click)="onDelete(user.id)"
-          [disabled]="numberOfUserSelected > 0"
         >
           Delete!
         </button>

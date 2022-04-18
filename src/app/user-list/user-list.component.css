@@ -6,3 +6,6 @@
   color: green;
   font-weight: bold;
 }
+.hidden {
+  display: hidden;
+}

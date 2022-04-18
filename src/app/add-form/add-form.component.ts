@@ -5,13 +5,7 @@ import { LoggingService } from '../services/Logging.service';
 @Component({
   selector: 'app-add-form',
   templateUrl: './add-form.component.html',
-  styles: [
-    `
-      input.ng-invalid.ng-touched {
-        border: 2px solid darkred;
-      }
-    `,
-  ],
+  styleUrls:["./add-form.component.css"],
   providers: [LoggingService],
 })
 export class AddFormComponent implements OnInit {

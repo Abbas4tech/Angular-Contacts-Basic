@@ -1,0 +1,14 @@
+input.ng-invalid.ng-touched {
+  border: 2px solid #b40e0e;
+  background-color: #fddddd;
+}
+input:focus.ng-invalid.ng-touched {
+  border-color: #ff8800;
+  background-color: #fbe8d2;
+}
+span {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: rgb(187, 19, 7);
+}
